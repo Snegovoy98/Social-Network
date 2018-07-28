@@ -1,0 +1,7 @@
+authorization_page:
+  path: /
+  controller: App\Controller\AuthorizationController::authorizationTemplate
+
+registration_page:
+  path: /registration
+  controller: App\Controller\RegistrationController::registrationTemplate
