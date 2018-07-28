@@ -5,3 +5,7 @@ authorization_page:
 registration_page:
   path: /registration
   controller: App\Controller\RegistrationController::registrationTemplate
+
+home_page:
+  path: /home
+  controller:  App\Controller\HomePageController::homeTemplate
