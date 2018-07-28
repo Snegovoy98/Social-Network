@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>{% block title %}{% endblock %}</title>
+        {% block stylesheets %}
+            <link  href="{{ asset('images/favicon.ico') }}" rel="shortcut icon">
+            <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('css/navbar.css') }}" rel="stylesheet" >
+            <link  href="{{ asset('css/carousel.css') }}" rel="stylesheet">
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+
+        {% block nav %}
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Social Network</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExample04">
+
+                    <form class="form-inline my-2 my-md-0">
+                        <input class="form-control" type="text" placeholder="Search">
+                    </form>
+                </div>
+            </nav>
+        {% endblock %}
+           {% block left_sidebar %}
+            {%endblock  %}
+             {% block top_sidebar %}
+
+              {% endblock %}
+            {% block footer %}
+            <footer class="container">
+            <p>&copy; 2018 Social Network, Inc.</p>
+            </footer>
+            {% endblock %}
+        {% endblock %}
+        {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script>window.jQuery || document.write('<script src="{{ asset('js/vendor/jquery-slim.min.js')}}"><\/script>')</script>
+            <script src="{{ asset('js/vendor/popper.min.js') }}"></script>
+            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('js/holder.min.js') }}"></script>
+            <script>
+                feather.replace()
+            </script>
+
+            <!-- Graphs -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+            <script>
+                var ctx = document.getElementById("myChart");
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                        datasets: [{
+                            data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+                            lineTension: 0,
+                            backgroundColor: 'transparent',
+                            borderColor: '#007bff',
+                            borderWidth: 4,
+                            pointBackgroundColor: '#007bff'
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: false
+                                }
+                            }]
+                        },
+                        legend: {
+                            display: false,
+                        }
+                    }
+                });
+            </script>
+        {% endblock %}
+    </body>
+</html>
