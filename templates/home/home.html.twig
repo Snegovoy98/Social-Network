@@ -9,6 +9,7 @@
     <link href="{{ asset('css/nprogress.css') }}" rel="stylesheet">
     <link href="{{ asset('css/daterangepicker.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 {% endblock %}
 
 {% block body%}
@@ -25,14 +26,14 @@
             <div class="clearfix"></div>
     {% endblock %}
     {% block left_sidebar %}
-         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu col-md-8 ">
               <div class="menu_section">
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Моя страница</a></li>
-                  <li><a><i class="fa fa-home"></i>Новости</a></li>
-                  <li><a><i class="fa fa-home"></i>Сообщения</a></li>
-                  <li><a><i class="fa fa-home"></i>Друзья</a></li>
-                  <li><a><i class="fa fa-clone"></i>Аудиозаписи </a></li>
+                <ul class="nav side-menu ">
+                  <li><a><i class="fas fa-home"></i>Моя страница</a></li>
+                  <li><a><i class="fas fa-newspaper"></i>Новости</a></li>
+                  <li><a><i class="fas fa-envelope"></i>Сообщения</a></li>
+                  <li><a><i class="fas fa-user-friends"></i>Друзья</a></li>
+                  <li><a><i class="fas fa-music"></i>Аудиозаписи </a></li>
                 </ul>
               </div>
               <div class="menu_section"></div>
@@ -58,26 +59,25 @@
     {% block top_sidebar %}
         <div class="right_col" role="main">
           <div class="">
-            <div class="page-title">
+            <div class="page-title col-md-7">
               <div class="title_left">
                 <h3>Social Network</h3>
               </div>
-
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+              <div class="title_center">
+                <div class="col-md-4 col-sm-5 col-xs-12 form-group pull-right top_search">
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search for...">
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="button">Go!</button>
                     </span>
-                    <li><a href="{{ path('authorization_page') }}"> Log Out</a></li>
                   </div>
                 </div>
               </div>
+              <ul class=" pull-right">
+                <li><i class="fas fa-sign-out-alt"></i><a href="{{ path('authorization_page') }}" >Log Out</a></li>
+              </ul>
             </div>
-
             <div class="clearfix"></div>
-
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -88,7 +88,6 @@
                           <img class="img-responsive avatar-view col-md-12 col-sm-12 col-xs-12" src="images/developer.svg" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
-
                       <a class="btn btn-success">Редактировать</a>
                       <br />
                     </div>
