@@ -4,6 +4,9 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/**This is Entity create table for save users data
+ *
+ */
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
  */
