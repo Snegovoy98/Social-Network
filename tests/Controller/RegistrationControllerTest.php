@@ -16,6 +16,7 @@ class RegistrationControllerTest extends WebTestCase
 
         $form['firstName'] = 'Ivan';
         $form['lastName'] = 'Ivanov';
+        $form['fatherName'] = 'Ivanovich';
         $form['username'] = 'IvanovMaster';
         $form['password'] = 'IvanovIvan';
         $form['password_conf'] = 'IvanovIvan';
