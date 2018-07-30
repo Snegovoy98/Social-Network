@@ -1,0 +1,59 @@
+{%extends 'home/home.html.twig' %}
+
+
+{% block title %}{{ parent() }}{% endblock %}
+{% block stylesheets %}
+{{ parent() }}
+{% endblock %}
+{% block body %}
+{% block nav %}
+    {{ parent() }}
+{% endblock %}
+{% block left_sidebar %}
+    {{ parent() }}
+{% endblock %}
+    {% block top_sidebar %}
+        <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title col-md-7">
+                <div class="title_left">
+                    <h3>Social Network</h3>
+                </div>
+                <div class="title_center">
+                    <div class="col-md-4 col-sm-5 col-xs-12 form-group pull-right top_search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+                <ul class=" pull-right">
+                    <li><i class="fas fa-sign-out-alt"></i><a href="{{ path('authorization_page') }}" >Log Out</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_content">
+                            <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                                <div class="profile_img">
+                                    <div id="crop-avatar" class=" col-md-12 col-sm-12 col-xs-12">
+                                        <img class="img-responsive avatar-view col-md-12 col-sm-12 col-xs-12" src="images/developer.svg" alt="Avatar" title="Change the avatar">
+                                    </div>
+                                </div>
+                                <div class="col-md-9 col-sm-7 col-xs-12 align-content-md-center">
+                                    <h3 class="text-center">Samuel Doe</h3>
+                                </div>
+                                <br />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}
