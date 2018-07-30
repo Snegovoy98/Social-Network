@@ -6,9 +6,13 @@ registration_page:
   path: /registration
   controller: App\Controller\RegistrationController::registrationTemplate
 
-home_page:
-  path: /home
-  controller:  App\Controller\HomePageController::homeTemplate
+my_profile_page:
+  path: /profile/{id}
+  controller:  App\Controller\ProfileController::myTemplate
+
+friend_profile_page:
+  path: /friend/{id}
+  controller: App\Controller\ProfileController::friendTemplate
 
 send_message_page:
   path: /messages
