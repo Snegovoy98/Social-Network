@@ -8,6 +8,6 @@ class MessagesController extends AbstractController
 {
     public function messagesTemplate()
     {
-        $this->render('messages/messages.html.twig');
+       return $this->render('messages/messages.html.twig');
     }
 }
