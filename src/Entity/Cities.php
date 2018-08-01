@@ -27,16 +27,16 @@ class Cities
     private $user_id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="city_born_id")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Countries")
      * @ORM\JoinColumn(nullable=false)
      */
     private $country_id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="city_born_id")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
     public function getId()
     {
@@ -67,18 +67,6 @@ class Cities
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
     public function getCountryId(): ?Countries
     {
         return $this->country_id;
@@ -87,6 +75,18 @@ class Cities
     public function setCountryId(?Countries $country_id): self
     {
         $this->country_id = $country_id;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
