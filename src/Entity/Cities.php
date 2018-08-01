@@ -17,12 +17,19 @@ class Cities
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
      */
-    private $name;
+    private $user_id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="city_born_id")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Countries")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $country_id;
 
@@ -31,24 +38,36 @@ class Cities
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getUserId(): ?int
     {
-        return $this->name;
+        return $this->user_id;
     }
 
-    public function setName(string $name): self
+    public function setUserId(int $user_id): self
     {
-        $this->name = $name;
+        $this->user_id = $user_id;
 
         return $this;
     }
 
-    public function getCountryId(): ?int
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getCountryId(): ?Countries
     {
         return $this->country_id;
     }
 
-    public function setCountryId(int $country_id): self
+    public function setCountryId(?Countries $country_id): self
     {
         $this->country_id = $country_id;
 
