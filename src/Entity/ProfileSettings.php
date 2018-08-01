@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -37,10 +39,14 @@ class ProfileSettings
     private $show_friends;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="profileSettings")
      */
     private $user_id;
+
+    public function __construct()
+    {
+        $this->user_id = new ArrayCollection();
+    }
 
     public function getId()
     {
@@ -95,14 +101,33 @@ class ProfileSettings
         return $this;
     }
 
-    public function getUserId(): ?User
+    /**
+     * @return Collection|User[]
+     */
+    public function getUserId(): Collection
     {
         return $this->user_id;
     }
 
-    public function setUserId(?User $user_id): self
+    public function addUserId(User $userId): self
     {
-        $this->user_id = $user_id;
+        if (!$this->user_id->contains($userId)) {
+            $this->user_id[] = $userId;
+            $userId->setProfileSettings($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserId(User $userId): self
+    {
+        if ($this->user_id->contains($userId)) {
+            $this->user_id->removeElement($userId);
+            // set the owning side to null (unless already changed)
+            if ($userId->getProfileSettings() === $this) {
+                $userId->setProfileSettings(null);
+            }
+        }
 
         return $this;
     }
