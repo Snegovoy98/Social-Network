@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -47,16 +49,6 @@ class User
     private $date_born;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $city_born_id;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $live_city_id;
-
-    /**
      * @ORM\Column(type="datetime")
      */
     private $created_at;
@@ -65,6 +57,22 @@ class User
      * @ORM\Column(type="datetime")
      */
     private $updated_at;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Cities", mappedBy="user")
+     */
+    private $city_born_id;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Cities", mappedBy="user")
+     */
+    private $live_city_id;
+
+    public function __construct()
+    {
+        $this->city_born_id = new ArrayCollection();
+        $this->live_city_id = new ArrayCollection();
+    }
 
     public function getId()
     {
@@ -143,30 +151,6 @@ class User
         return $this;
     }
 
-    public function getCityBornId(): ?int
-    {
-        return $this->city_born_id;
-    }
-
-    public function setCityBornId(int $city_born_id): self
-    {
-        $this->city_born_id = $city_born_id;
-
-        return $this;
-    }
-
-    public function getLiveCityId(): ?int
-    {
-        return $this->live_city_id;
-    }
-
-    public function setLiveCityId(int $live_city_id): self
-    {
-        $this->live_city_id = $live_city_id;
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->created_at;
@@ -187,6 +171,68 @@ class User
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Cities[]
+     */
+    public function getCityBornId(): Collection
+    {
+        return $this->city_born_id;
+    }
+
+    public function addCityBornId(Cities $cityBornId): self
+    {
+        if (!$this->city_born_id->contains($cityBornId)) {
+            $this->city_born_id[] = $cityBornId;
+            $cityBornId->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCityBornId(Cities $cityBornId): self
+    {
+        if ($this->city_born_id->contains($cityBornId)) {
+            $this->city_born_id->removeElement($cityBornId);
+            // set the owning side to null (unless already changed)
+            if ($cityBornId->getUser() === $this) {
+                $cityBornId->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Cities[]
+     */
+    public function getLiveCityId(): Collection
+    {
+        return $this->live_city_id;
+    }
+
+    public function addLiveCityId(Cities $liveCityId): self
+    {
+        if (!$this->live_city_id->contains($liveCityId)) {
+            $this->live_city_id[] = $liveCityId;
+            $liveCityId->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLiveCityId(Cities $liveCityId): self
+    {
+        if ($this->live_city_id->contains($liveCityId)) {
+            $this->live_city_id->removeElement($liveCityId);
+            // set the owning side to null (unless already changed)
+            if ($liveCityId->getUser() === $this) {
+                $liveCityId->setUser(null);
+            }
+        }
 
         return $this;
     }
