@@ -22,7 +22,8 @@ class Images
     private $image_path;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\OneToOne(targetEntity="App\Entity\ProfileSettings", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $setting_id;
 
@@ -43,12 +44,12 @@ class Images
         return $this;
     }
 
-    public function getSettingId(): ?int
+    public function getSettingId(): ?ProfileSettings
     {
         return $this->setting_id;
     }
 
-    public function setSettingId(int $setting_id): self
+    public function setSettingId(ProfileSettings $setting_id): self
     {
         $this->setting_id = $setting_id;
 
