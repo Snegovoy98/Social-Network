@@ -17,12 +17,14 @@ class Friends
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $user_id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\OneToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $friend_id;
 
@@ -31,24 +33,24 @@ class Friends
         return $this->id;
     }
 
-    public function getUserId(): ?int
+    public function getUserId(): ?User
     {
         return $this->user_id;
     }
 
-    public function setUserId(int $user_id): self
+    public function setUserId(?User $user_id): self
     {
         $this->user_id = $user_id;
 
         return $this;
     }
 
-    public function getFriendId(): ?int
+    public function getFriendId(): ?User
     {
         return $this->friend_id;
     }
 
-    public function setFriendId(int $friend_id): self
+    public function setFriendId(User $friend_id): self
     {
         $this->friend_id = $friend_id;
 
