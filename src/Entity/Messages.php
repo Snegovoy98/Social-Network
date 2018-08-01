@@ -17,12 +17,14 @@ class Messages
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $sender_id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $receiver_id;
 
@@ -46,24 +48,24 @@ class Messages
         return $this->id;
     }
 
-    public function getSenderId(): ?int
+    public function getSenderId(): ?User
     {
         return $this->sender_id;
     }
 
-    public function setSenderId(int $sender_id): self
+    public function setSenderId(?User $sender_id): self
     {
         $this->sender_id = $sender_id;
 
         return $this;
     }
 
-    public function getReceiverId(): ?int
+    public function getReceiverId(): ?User
     {
         return $this->receiver_id;
     }
 
-    public function setReceiverId(int $receiver_id): self
+    public function setReceiverId(?User $receiver_id): self
     {
         $this->receiver_id = $receiver_id;
 
