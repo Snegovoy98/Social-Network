@@ -37,7 +37,8 @@ class ProfileSettings
     private $show_friends;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $user_id;
 
@@ -94,12 +95,12 @@ class ProfileSettings
         return $this;
     }
 
-    public function getUserId(): ?int
+    public function getUserId(): ?User
     {
         return $this->user_id;
     }
 
-    public function setUserId(int $user_id): self
+    public function setUserId(?User $user_id): self
     {
         $this->user_id = $user_id;
 
