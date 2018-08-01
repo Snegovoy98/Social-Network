@@ -23,7 +23,7 @@ class Friends
     private $user_id;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
     private $friend_id;
@@ -50,7 +50,7 @@ class Friends
         return $this->friend_id;
     }
 
-    public function setFriendId(User $friend_id): self
+    public function setFriendId(?User $friend_id): self
     {
         $this->friend_id = $friend_id;
 
