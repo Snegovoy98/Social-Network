@@ -59,6 +59,12 @@ class User
     private $updated_at;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\ProfileSettings", inversedBy="user_id")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $profileSettings;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Cities", mappedBy="user")
      */
     private $city_born_id;
@@ -171,6 +177,18 @@ class User
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getProfileSettings(): ?ProfileSettings
+    {
+        return $this->profileSettings;
+    }
+
+    public function setProfileSettings(?ProfileSettings $profileSettings): self
+    {
+        $this->profileSettings = $profileSettings;
 
         return $this;
     }
