@@ -17,6 +17,11 @@ class Cities
     private $id;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $user_id;
@@ -36,6 +41,18 @@ class Cities
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
     }
 
     public function getUserId(): ?int
