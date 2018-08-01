@@ -19,7 +19,7 @@ class Images
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $images_path;
+    private $image_path;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\ProfileSettings", cascade={"persist", "remove"})
@@ -32,14 +32,14 @@ class Images
         return $this->id;
     }
 
-    public function getImagesPath(): ?string
+    public function getImagePath(): ?string
     {
-        return $this->images_path;
+        return $this->image_path;
     }
 
-    public function setImagesPath(string $images_path): self
+    public function setImagePath(string $image_path): self
     {
-        $this->images_path = $images_path;
+        $this->image_path = $image_path;
 
         return $this;
     }
