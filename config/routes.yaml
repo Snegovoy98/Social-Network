@@ -1,4 +1,4 @@
-authorization:
+login:
     path: /authorization
     controller: App\Controller\AuthorizationController::index
 
