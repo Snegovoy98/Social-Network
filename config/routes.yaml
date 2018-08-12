@@ -1,0 +1,7 @@
+authorization:
+    path: /authorization
+    controller: App\Controller\AuthorizationController::index
+
+registration:
+    path: /registration
+    controller: App\Controller\egistrationController::index
