@@ -56,7 +56,7 @@ class RegistrationType extends AbstractType
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-ddd'
             ])
-            ->add('')
+            ->add('countries', CountryType::class)
             ->add('submit', SubmitType::class)
             ;
     }
