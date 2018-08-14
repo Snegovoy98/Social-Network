@@ -2,13 +2,34 @@
 
 {% block title %}Авторизация{% endblock %}
 {% block stylesheets %}
-    {{ parent() }}
+    <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/floating-labels.css')}}" rel="stylesheet">
 {% endblock %}
 {% block body %}
-<div id="app">
-    <App/>
-</div>
+    <form class="form-signin" action="{{ path('login') }}" method="post">
+        <div class="text-center mb-4">
+            <h1 class="h3 mb-3 font-weight-normal">Авторизация</h1>
+        </div>
+
+        <div class="form-label-group">
+            <input type="email" id="inputLogin" class="form-control" placeholder="Логин" required autofocus>
+            <label for="inputLogin">Логин</label>
+        </div>
+
+        <div class="form-label-group">
+            <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" required>
+            <label for="inputPassword">Пароль</label>
+        </div>
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted text-center">&copy;Social Network 2018</p>
+    </form>
 {% endblock %}
 {% block javascripts%}
-    {{ parent() }}
+
 {% endblock %}
