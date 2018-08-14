@@ -7,11 +7,11 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class AuthorizationController extends AbstractController
 {
-    public function index(AuthenticationUtils $authenticationUtils)
+    public function login(AuthenticationUtils $authenticationUtils)
     {
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
-        return $this->render('authorization/index.html.twig', [
+        return $this->render('authorization/registration.html.twig', [
             'last_username' => $lastUsername,
             'error'         => $error,
         ]);
