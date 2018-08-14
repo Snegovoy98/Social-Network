@@ -4,4 +4,4 @@ login:
 
 registration:
     path: /registration
-    controller: App\Controller\egistrationController::index
+    controller: App\Controller\RegistrationController::index
