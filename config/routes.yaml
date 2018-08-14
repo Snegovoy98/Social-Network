@@ -5,3 +5,11 @@ login:
 registration:
     path: /registration
     controller: App\Controller\RegistrationController::index
+
+user_page:
+    path: /profile{id}
+    controller: App\Controller\ProfileController::user
+
+other_user_page:
+    path: /profile_user{id}
+    controller: App\Controller\ProfileController::friend
