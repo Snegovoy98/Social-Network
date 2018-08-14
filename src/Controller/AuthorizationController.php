@@ -11,7 +11,7 @@ class AuthorizationController extends AbstractController
     {
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
-        return $this->render('authorization/registration.html.twig', [
+        return $this->render('authorization/authorization.html.twig', [
             'last_username' => $lastUsername,
             'error'         => $error,
         ]);
