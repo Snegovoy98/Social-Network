@@ -1,6 +1,6 @@
 login:
     path: /authorization
-    controller: App\Controller\AuthorizationController::index
+    controller: App\Controller\AuthorizationController::login
 
 registration:
     path: /registration
