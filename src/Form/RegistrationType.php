@@ -111,9 +111,7 @@ class RegistrationType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'error_mapping' => [
-                'matchingCityAndZipCode' => 'city',
-            ],
+
         ]);
     }
 }
